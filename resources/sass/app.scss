@@ -83,37 +83,18 @@ body {
 }
 
 /* Topic Index Page */
-.topics-index-page, .categories-show-page {
-    .topic-list {
-        .nav>li>a {
-            position: relative;
-            display: block;
-            padding: 5px 14px;
-            font-size: 0.9em;
-        }
 
-        a {
-            color: #444444;
-        }
+@import "topic_body";
 
-        .meta {
-            font-size: 0.9em;
-            color: #b3b3b3;
+.topics-show-page {
 
-            a {
-                color: #b3b3b3;
-            }
-        }
+    .card {
+        padding: 15px;
 
-        .badge {
-            background-color: #d8d8d8;
-        }
-
-        hr {
-            margin-top: 12px;
-            margin-bottom: 12px;
-            border: 0;
-            border-top: 1px solid #dcebf5;
+        h1 {
+            margin: 0.4em auto 0.6em;
+            font-size: 28px;
+            line-height: 38px;
         }
     }
 }
@@ -122,3 +103,4 @@ body {
 #app > div.container {
     margin-bottom: 100px;
 }
+

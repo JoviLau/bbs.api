@@ -10,6 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'BBS Laravel') - Jovi</title>
+    <meta name="description" content="@yield('description', 'Jovi 爱好者社区')" />
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
