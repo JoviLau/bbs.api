@@ -48,5 +48,12 @@ class UsersTableSeeder extends Seeder
         $user->email = '837717107@qq.com';
         $user->introduction = 'Don\'t lose hope, who knows what surprises will come tomorrow.';
         $user->save();
+
+        // 初始化用户角色，将 1 号用户指派为『站长』
+        $user->assignRole('Founder');
+
+        // 将 2 号用户指派为『管理员』
+        $user = User::find(2);
+        $user->assignRole('Maintainer');
     }
 }
