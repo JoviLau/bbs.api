@@ -9,8 +9,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'BBS Laravel') - Jovi</title>
-    <meta name="description" content="@yield('description', 'Jovi 爱好者社区')" />
+    <title>@yield('title', 'BBS Laravel') - {{ setting('site_name', '爱好者社区') }}</title>
+    <meta name="description" content="@yield('description', setting('seo_description', '爱好者社区。'))" />
+    <meta name="keyword" content="@yield('keyword', setting('seo_keyword', '社区,论坛'))" />
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
