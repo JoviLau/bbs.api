@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a3b3282286f2c5b3ced610f4999d2c1",
+    "content-hash": "f6f90f8ea278bd5c98ca1e03d7292410",
     "packages": [
         {
             "name": "caouecs/laravel-lang",
@@ -2046,6 +2046,50 @@
                 "twitter"
             ],
             "time": "2016-08-17T00:36:58+00:00"
+        },
+        {
+            "name": "liyu/dingo-serializer-switch",
+            "version": "v0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liyu001989/dingo-serializer-switch.git",
+                "reference": "90db0bff648cac0f0c44cca7f949783161a34c8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liyu001989/dingo-serializer-switch/zipball/90db0bff648cac0f0c44cca7f949783161a34c8a",
+                "reference": "90db0bff648cac0f0c44cca7f949783161a34c8a",
+                "shasum": ""
+            },
+            "require": {
+                "dingo/api": "^2.0.0-alpha1",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liyu\\Dingo\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liyu\\Dingo\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yu Li",
+                    "email": "liyu001989@gmail.com"
+                }
+            ],
+            "description": "A middleware to switch dingo serializer",
+            "time": "2018-12-28T07:37:23+00:00"
         },
         {
             "name": "mews/captcha",
