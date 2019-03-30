@@ -46,18 +46,26 @@ $api->version('v1', [
         'expires' => config('api.rate_limits.access.expires'),
     ], function ($api) {
         // 游客可以访问的接口
+        //分类列表
         $api->get('categories', 'CategoriesController@index')->name('api.categories.index');
 
+        //话题列表
+        $api->get('topics', 'TopicsController@index')->name('api.topics.index');
+        //某个用户话题列表
+        $api->get('users/{user}/topics', 'TopicsController@userIndex')->name('api.users.topics.index');
 
         // 需要 token 验证的接口
         $api->group(['middleware' => 'api.auth'], function($api) {
+
             // 当前登录用户信息
             $api->get('user', 'UsersController@me')->name('api.user.show');
             // 编辑登录用户信息
             $api->patch('user', 'UsersController@update')->name('api.user.update');
+
             // 图片资源
             $api->post('images', 'ImagesController@store')->name('api.images.store');
-            // 发布话题
+
+            // 话题增改删
             $api->post('topics', 'TopicsController@store')->name('api.topics.store');
             $api->patch('topics/{topic}', 'TopicsController@update')->name('api.topics.update');
             $api->delete('topics/{topic}', 'TopicsController@destroy')->name('api.topics.destroy');
