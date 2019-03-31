@@ -61,13 +61,6 @@ $api->version('v1', [
         // 某个用户的回复列表
         $api->get('users/{user}/replies', 'RepliesController@userIndex')->name('api.users.replies.index');
 
-        // 通知列表
-        $api->get('user/notifications', 'NotificationsController@index')->name('api.user.notifications.index');
-        // 通知统计
-        $api->get('user/notifications/stats', 'NotificationsController@stats')->name('api.user.notifications.stats');
-        // 标记消息通知为已读
-        $api->patch('user/read/notifications', 'NotificationsController@read')->name('api.user.notifications.read');
-
         // 需要 token 验证的接口
         $api->group(['middleware' => 'api.auth'], function($api) {
 
@@ -87,6 +80,16 @@ $api->version('v1', [
             // 发布\删除回复
             $api->post('topics/{topic}/replies', 'RepliesController@store')->name('api.topics.replies.store');
             $api->delete('topics/{topic}/replies/{reply}', 'RepliesController@destroy')->name('api.topics.replies.destroy');
+
+            // 通知列表
+            $api->get('user/notifications', 'NotificationsController@index')->name('api.user.notifications.index');
+            // 通知统计
+            $api->get('user/notifications/stats', 'NotificationsController@stats')->name('api.user.notifications.stats');
+            // 标记消息通知为已读
+            $api->patch('user/read/notifications', 'NotificationsController@read')->name('api.user.notifications.read');
+
+            // 当前登录用户权限
+            $api->get('user/permissions', 'PermissionsController@index')->name('api.user.permissions.index');
         });
     });
 });
