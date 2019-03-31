@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Traits\PassportToken;
 use Auth;
 use App\Models\User;
 use App\Http\Requests\Api\AuthorizationRequest;
@@ -14,6 +15,8 @@ use Illuminate\Http\Request;
 
 class AuthorizationsController extends Controller
 {
+    use PassportToken;
+
     public function store(AuthorizationRequest $originRequest, AuthorizationServer $server, ServerRequestInterface $serverRequest)
     {
         try {
@@ -89,8 +92,11 @@ class AuthorizationsController extends Controller
                 break;
         }
 
-        $token = Auth::guard('api')->fromUser($user);
-        return $this->respondWithToken($token)->setStatusCode(201);
+        /*$token = Auth::guard('api')->fromUser($user);
+        return $this->respondWithToken($token)->setStatusCode(201);*/
+
+        $result = $this->getBearerTokenByUser($user, '1', false);
+        return $this->response->array($result)->setStatusCode(201);
     }
 
     protected function respondWithToken($token)
