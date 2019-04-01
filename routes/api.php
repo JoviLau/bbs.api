@@ -34,6 +34,8 @@ $api->version('v1', [
         $api->post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')->name('api.socials.authorizations.store');
         // 登录
         $api->post('authorizations', 'AuthorizationsController@store')->name('api.authorizations.store');
+        // 小程序登录
+        $api->post('weapp/authorizations', 'AuthorizationsController@weappStore')->name('api.weapp.authorizations.store');
         // 刷新token
         $api->put('authorizations/current', 'AuthorizationsController@update')->name('api.authorizations.update');
         // 删除token
